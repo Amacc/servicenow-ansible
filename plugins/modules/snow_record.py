@@ -428,7 +428,7 @@ def main():
             if attach is not None:
                 res = response.upload(b_attach)
                 module.result['changed'] = True
-                module.result['attached_file'] = res
+                module.result['attached_file'] = res.one()
 
         except pysnow.exceptions.MultipleResults:
             module.fail(msg="Multiple record match")
